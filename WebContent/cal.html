@@ -51,13 +51,57 @@
 
 <script type="text/javascript">
 
-window.onload = function(){
+let display = $("#display");
+
+
+let str ="" //화면출력을 위해서 임식 문자열
+/*
+//클릭할때
+let btnList = [];
+for(let i = 0; i<10; i++){
+	
+	btnList.push($("#btn"+i));
 	
 	
+	$(btnList[i]).on("click", ()=>{
+		console.log("클릭");
+		str += i;
+		display.val(str);
+		
+		//console.log(display.val());
+		
+		//display.val();
+	});
 	
+}
+
+console.log(btnList);
+*/
+//////////////////////////////////////////////////////////////
+
+
+let btnList = [];
+for(let i = 0; i<10; i++){
+	//버튼 배열에 담기
+	btnList.push($("#btn"+i));
+	
+}	
+
+//$.each("배열", "무슨일")
+
+$(btnList).each((index, item)=>{
+	item.on("click", function(){
+		console.log("클릭");
+	});
+});
 	
 
-}
+
+
+
+
+
+
 
 </script>
 
