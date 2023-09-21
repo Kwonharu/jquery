@@ -53,9 +53,9 @@
 
 let display = $("#display");
 
-
-let str ="" //화면출력을 위해서 임식 문자열
 /*
+let str ="" //화면출력을 위해서 임식 문자열
+
 //클릭할때
 let btnList = [];
 for(let i = 0; i<10; i++){
@@ -96,7 +96,13 @@ $(btnList).each((index, item)=>{
 });
 	
 
+/////////////////////////////////
+//1. 모든 버튼을 불러온다
+//2. 그 안에서 숫자와 문자 버튼을 나눈다
+//3. 조진다.
 
+let allbtn = $("button");
+console.log(allbtn);
 
 
 
