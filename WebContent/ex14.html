@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<ul>
+		<li id="first" class="red" data-bno="1" data-pname="김두한">첫번째 아이템입니다.</li>
+		<li id="second" class="blue" data-bno="2" data-pname="상하이조"><strong>두번째 아이템입니다.</strong></li>
+		<li id="third" class="del" data-bno="3" data-pname="장택상">세번째아이템입니다.</li>
+		<li data-bno="4" data-pname="조병옥"><strong>네번째 아이템입니다.</strong></li>
+		
+	</ul>
+	<button id="btn" type="button">li요소추가</button>
+	<br>
+	<br>
+	<button id="dataBtn" type="button">데이터 썩션</button>
+	
+</body>
+
+<script>
+	
+	let j = 5;
+	
+	//버튼 클릭 시
+	$("#btn").on("click", function(){
+		console.log("수아앗!");
+		
+		let str = "<li  data-bno='"+j+"' data-pname='심영의 분신"+j+"'>"+j+" 번째 아이템입니다.</li>";
+		
+		$("ul").append(str);
+		
+		j++;
+	});
+	
+	//li 클릭 시
+	/*
+	$("li").on("click", function(){
+		//console.log("키이이잉!");
+		
+		let $this = $(this);
+		
+		console.log($this.text());
+	});
+	*/
+	
+	//ul 클릭 시
+					//자식요소에게 위임
+	$("ul").on("click", "li", function(){
+		//console.log("키이이잉!");
+		
+		let $this = $(this);
+		
+		let str = $this.text();
+		console.log(str);
+		
+		//$this.remove();
+	});
+	
+	//데이터 썩션- 시
+	$("#dataBtn").on("click", function(){
+		console.log("Suction!");
+		
+		let liTags = $("li");
+		//console.log(liTagss);
+		
+		for(let i=0; i<liTags.length; i++){
+			let bno = $(liTags[i]).data("bno");
+			let pname = $(liTags[i]).data("pname");
+			//console.log(bno);
+			//console.log(pname);
+		}
+
+		//jquery each()
+		
+		let boardList = [];
+		liTags.each(()=>{
+			let $this = $(this);
+			let bNo = $this.data("bno");
+			let pName = $this.data("pname");
+			let str = $this.text();
+			
+			let boardVo = {
+				boardNo: bNo,
+				personName: pName,
+				content: str
+			}
+			
+			boardList.push(boardVo);
+		});
+		
+		console.log(boardList);
+		
+	});
+	
+	
+	
+</script>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<!--$(this)-->
+	<ul>
+							<!-- data 속성 값은 대문자로 쓰면 안 댐 (bNo X) -->
+		<li id="first" class="red" data-bno="1" data-pno="5">첫번째 아이템입니다.</li>
+		<li id="second" class="blue" data-bno="2" data-pno="4"><strong>두번째 아이템입니다.</strong></li>
+		<li id="third" class="del" data-bno="3" data-pno="5">세번째아이템입니다.</li>
+		<li data-bno="4" data-pno="3"><strong>네번째 아이템입니다.</strong></li>
+		
+	</ul>
+	<button>썩션</button>
+
+</body>
+
+<script>
+	
+	/*
+	$("#first").on("click", function(){
+		console.log("고서구");
+		let id = $("#first").attr("id");
+		console.log(id);
+		
+		let clz = $("#first").attr("class");
+		console.log(clz);
+	});
+	*/
+	
+	$("li").on("click", function(){
+		console.log("에엑따");
+		//console.log($("li"));
+		//console.log(this);
+		
+		/*
+		let id = $(this).attr("id");
+		console.log(id);
+		
+		let clz = $(this).attr("class");
+		console.log(clz);
+		*/
+		
+		/*
+		let bNo = $(this).data("bno");
+		let pNo = $(this).data("pno");
+		
+		let boardVo = {
+			bNo: bNo,
+			pNo: pNo
+		}
+		console.log(boardVo);
+		
+		console.log($(this).text());
+		*/
+		
+		let $this = $(this);
+
+		let bNo = $this.data("bno");
+		let pNo = $this.data("pno");
+		
+		let boardVo = {
+			bNo: bNo,
+			pNo: pNo
+		}
+		console.log(boardVo);
+		console.log($this.text());
+		
+	});
+	
+
+
+</script>
+
+
+</html>
+
+
